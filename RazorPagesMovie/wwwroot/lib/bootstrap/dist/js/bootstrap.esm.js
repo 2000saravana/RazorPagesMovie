@@ -3436,7 +3436,7 @@ const allowedAttribute = (attr, allowedAttributeList) => {
 const DefaultAllowlist = {
   // Global attributes allowed on any supplied element below.
   '*': ['class', 'dir', 'id', 'lang', 'role', ARIA_ATTRIBUTE_PATTERN],
-  a: ['target', 'href', 'title', 'rel'],
+  a: ['target', 'href', 'Title ', 'rel'],
   area: [],
   b: [],
   br: [],
@@ -3452,7 +3452,7 @@ const DefaultAllowlist = {
   h5: [],
   h6: [],
   i: [],
-  img: ['src', 'srcset', 'alt', 'title', 'width', 'height'],
+  img: ['src', 'srcset', 'alt', 'Title ', 'width', 'height'],
   li: [],
   ol: [],
   p: [],
@@ -3521,7 +3521,7 @@ const DISALLOWED_ATTRIBUTES = new Set(['sanitize', 'allowList', 'sanitizeFn']);
 const DefaultType$3 = {
   animation: 'boolean',
   template: 'string',
-  title: '(string|element|function)',
+  Title : '(string|element|function)',
   trigger: 'string',
   delay: '(number|object)',
   html: 'boolean',
@@ -3548,7 +3548,7 @@ const Default$3 = {
   animation: true,
   template: '<div class="tooltip" role="tooltip">' + '<div class="tooltip-arrow"></div>' + '<div class="tooltip-inner"></div>' + '</div>',
   trigger: 'hover focus',
-  title: '',
+  Title : '',
   delay: 0,
   html: false,
   selector: false,
@@ -3891,9 +3891,9 @@ class Tooltip extends BaseComponent {
   }
 
   getTitle() {
-    const title = this._element.getAttribute('data-bs-original-title') || this._config.title;
+    const Title  = this._element.getAttribute('data-bs-original-Title ') || this._config.Title ;
 
-    return this._resolvePossibleFunction(title);
+    return this._resolvePossibleFunction(Title );
   }
 
   updateAttachment(attachment) {
@@ -4014,18 +4014,18 @@ class Tooltip extends BaseComponent {
   }
 
   _fixTitle() {
-    const title = this._element.getAttribute('title');
+    const Title  = this._element.getAttribute('Title ');
 
-    const originalTitleType = typeof this._element.getAttribute('data-bs-original-title');
+    const originalTitleType = typeof this._element.getAttribute('data-bs-original-Title ');
 
-    if (title || originalTitleType !== 'string') {
-      this._element.setAttribute('data-bs-original-title', title || '');
+    if (Title  || originalTitleType !== 'string') {
+      this._element.setAttribute('data-bs-original-Title ', Title  || '');
 
-      if (title && !this._element.getAttribute('aria-label') && !this._element.textContent) {
-        this._element.setAttribute('aria-label', title);
+      if (Title  && !this._element.getAttribute('aria-label') && !this._element.textContent) {
+        this._element.setAttribute('aria-label', Title );
       }
 
-      this._element.setAttribute('title', '');
+      this._element.setAttribute('Title ', '');
     }
   }
 
@@ -4112,8 +4112,8 @@ class Tooltip extends BaseComponent {
       };
     }
 
-    if (typeof config.title === 'number') {
-      config.title = config.title.toString();
+    if (typeof config.Title  === 'number') {
+      config.Title  = config.Title .toString();
     }
 
     if (typeof config.content === 'number') {
